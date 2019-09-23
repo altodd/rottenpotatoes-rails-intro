@@ -4,7 +4,7 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %th <a id="title_header" class="hilite" href="Movie Title">Movie Title</a>
+      %th {:class=>("hilite" if @sort_column == "title")}= link_to 'Movie Title', movies_path(:sort_by=>'title'), :id=>"title_header"
       %th Rating
       %th Release Date
       %th More Info
