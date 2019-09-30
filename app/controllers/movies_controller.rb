@@ -11,7 +11,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    #@movies = Movie.order(params[:sort_by])
     @sort = params[:sort_by]
     @all_ratings = Movie.all_ratings
     @ratings = params[:ratings]
@@ -21,8 +20,6 @@ class MoviesController < ApplicationController
       @movies = Movie.where(:rating => @ratings.keys)
     elsif @sort
       @movies = Movie.all.order(@sort)
-    else
-      @movies = Movie.all
     end
     if !@ratings and params[:commit] != "Refresh"
         @ratings = Hash.new
